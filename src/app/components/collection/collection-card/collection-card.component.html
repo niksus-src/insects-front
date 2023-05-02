@@ -1,0 +1,25 @@
+<div class="collect-wrapper">
+  <div class="collect-content">
+    <div>
+      <img class="collect-content-img" [src]="insect.img" alt="фото">
+    </div>
+    <div class="collect-content-info">
+      <div class="collect-content-info_par">
+        <span class="title">Вид:</span>
+        {{insect.genus?.name || ''}}
+      </div>
+      <div class="collect-content-info_par">
+        <span class="title">Сборщик:</span>
+        {{insect.collector?.name || ''}}
+      </div>
+      <div class="collect-content-info_par">
+        <span class="title">Определивший:</span>
+        {{insect.defined?.name || ''}}
+      </div>
+      <div class="collect-content-info_par">
+        <span class="title">Хранилище:</span>
+        {{insect.storage}}
+      </div>
+    </div>
+  </div>
+</div>

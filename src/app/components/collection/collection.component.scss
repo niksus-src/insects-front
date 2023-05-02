@@ -1,0 +1,105 @@
+@import "src/variables.scss";
+
+.collect-wrapper {
+  width: 100%;
+  height: 100%;
+  padding-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.collect {
+  width: 1200px;
+  &-filter {
+    ::ng-deep span {
+      font-weight: bold;
+      color: $secondColor;
+      font-size: 14px;
+      line-height: 17px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    ::ng-deep &-dropdown {
+      background-color: $mainColor;
+      border: none;
+    }
+  }
+
+  &-cards {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  &-more {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $bgModal;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  display: flex;
+  gap: 20px;
+
+  &-img {
+    img {
+      width: 350px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 30px;
+    }
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: space-between;
+    font-size: 16px;
+    span {
+      font-weight: bold;
+    }
+  }
+}
+
+::ng-deep .modal {
+  border-radius: 30px;
+  border: 1px solid $secondColor;
+
+  .p-dialog-header {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    background-color: $mainColor;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+}
+
+::ng-deep .modalContent {
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  background-color: $mainColor !important;
+}

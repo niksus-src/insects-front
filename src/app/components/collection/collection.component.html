@@ -1,0 +1,94 @@
+<div class="collect-wrapper">
+  <app-spinner></app-spinner>
+  <div class="collect">
+    <div class="collect-filter" [formGroup]="filerForm">
+      <p-dropdown
+        placeholder="Вид"
+        optionLabel="name"
+        styleClass="collect-filter-dropdown"
+        emptyMessage="Нет данных"
+        formControlName="genus"
+        [options]="genuses"
+        [showClear]="true"
+      ></p-dropdown>
+      <p-dropdown
+        placeholder="Сборщик"
+        optionLabel="name"
+        styleClass="collect-filter-dropdown"
+        emptyMessage="Нет данных"
+        formControlName="collector"
+        [options]="collectors"
+        [showClear]="true"
+      ></p-dropdown>
+      <p-dropdown
+        placeholder="Определивший"
+        optionLabel="name"
+        styleClass="collect-filter-dropdown"
+        emptyMessage="Нет данных"
+        formControlName="defined"
+        [options]="defineds"
+        [showClear]="true"
+      ></p-dropdown>
+    </div>
+    <div class="collect-cards">
+      <app-collection-card
+        style="flex-basis: 380px"
+        *ngFor="let insect of insectsFiltered"
+        [insect]="insect"
+        (click)="showModal(insect)"
+      ></app-collection-card>
+    </div>
+    <div class="collect-more">
+      <button class="button" [disabled]="disableMore" (click)="loadMore()">
+        + ЕЩЁ
+      </button>
+    </div>
+  </div>
+</div>
+
+<p-dialog
+  header=""
+  styleClass="modal"
+  contentStyleClass="modalContent"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+  [(visible)]="showModalTr"
+>
+  <div class="modal-content">
+    <div class="modal-content-img">
+      <img [src]="selectedIns?.img" alt="фото">
+    </div>
+    <div class="modal-content-info">
+      <div class="modal-content-info_par">
+        <span>Вид: </span>
+        {{selectedIns?.genus?.name}}
+      </div>
+      <div class="modal-content-info_par">
+        <span>Географическая привязка: </span>
+        {{selectedIns?.binding?.name}}
+      </div>
+      <div class="modal-content-info_par">
+        <span>Корректировка привязки: </span>
+        {{selectedIns?.correctBind}}
+      </div>
+      <div class="modal-content-info_par">
+        <span>Биотип: </span>
+        {{selectedIns?.bioType}}
+      </div>
+      <div class="modal-content-info_par">
+        <span>Сборщик: </span>
+        {{selectedIns?.collector?.name}}
+      </div>
+      <div class="modal-content-info_par">
+        <span>Определивший: </span>
+        {{selectedIns?.defined?.name}}
+      </div>
+      <div class="modal-content-info_par">
+        <span>Хранилище: </span>
+        {{selectedIns?.storage}}
+      </div>
+    </div>
+  </div>
+</p-dialog>

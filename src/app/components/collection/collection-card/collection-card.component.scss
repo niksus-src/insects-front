@@ -1,0 +1,36 @@
+@import "src/variables.scss";
+
+.collect-wrapper {
+  width: 385px;
+  height: 150px;
+  border-radius: 30px;
+  border: 1px solid $secondColor;
+  background-color: $mainColor;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.collect-content {
+  display: flex;
+  &-img {
+    z-index: 0;
+    width: 170px;
+    height: 148px;
+    border-radius: 30px;
+    border-right: 1px solid $secondColor;
+    object-fit: cover;
+  }
+
+  &-info {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 12px;
+    justify-content: space-around;
+
+    .title {
+      font-weight: bold;
+    }
+  }
+}

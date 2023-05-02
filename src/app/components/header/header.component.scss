@@ -1,0 +1,62 @@
+@import "src/variables.scss";
+
+.active {
+  &:after {
+    display: block; /*превращаем его в блочный элемент*/
+    content: ""; /*контента в данном блоке не будет поэтому в кавычках ничего не ставим*/
+    height: 3px; /*задаём высоту линии*/
+    width: 100% !important; /*задаём начальную ширину элемента (линии)*/
+    background-color: $graySilk; /*цвет фона элемента*/
+    transition: width 0.4s ease-in-out; /*данное свойство отвечает за плавное изменение ширины. Здесь можно задать время анимации в секундах (в данном случае задано 0.4 секунды)*/
+  }
+}
+
+.header {
+  z-index: 1;
+  color: $secondColor;
+  background-color: $mainColor;
+  position: fixed;
+  width: 100%;
+  height: 120px;
+
+  &-navigate {
+    font-size: 14px;
+    a {
+      color: $secondColor;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    a:after {
+      display: block; /*превращаем его в блочный элемент*/
+      content: ""; /*контента в данном блоке не будет поэтому в кавычках ничего не ставим*/
+      height: 3px; /*задаём высоту линии*/
+      width: 0%; /*задаём начальную ширину элемента (линии)*/
+      background-color: $graySilk; /*цвет фона элемента*/
+      transition: width 0.4s ease-in-out; /*данное свойство отвечает за плавное изменение ширины. Здесь можно задать время анимации в секундах (в данном случае задано 0.4 секунды)*/
+    }
+    a:hover:after,
+    a:focus:after {
+      width: 100%;
+    }
+  }
+
+  &-container {
+    display: flex;
+    gap: 15px;
+    justify-content: space-around;
+    align-items: center;
+
+    height: 100%;
+    &_item {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      justify-content: center;
+      span {
+        font-size: 12px;
+      }
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}

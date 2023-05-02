@@ -1,0 +1,37 @@
+<app-global-spinner></app-global-spinner>
+<div class="login">
+  <div class="login-container">
+    <div class="login-form" [formGroup]="loginForm">
+      <span class="p-float-label login-form-item">
+        <input
+          pInputText
+          id="login"
+          type="text"
+          class="login-form-input"
+          formControlName="login"
+        />
+        <label for="login">Введите логин</label>
+      </span>
+      <span class="p-float-label login-form-item">
+        <p-password
+          id="pass"
+          inputStyleClass="login-form-input"
+          formControlName="password"
+          [toggleMask]="true"
+          [feedback]="false"
+        />
+        <label for="pass">Введите пароль</label>
+      </span>
+    </div>
+    <div class="login-info">
+      <button class="button" (click)="login()">ВОЙТИ</button>
+      <span
+        class="login-info-helper"
+        pTooltip="Обратитесь к администратору"
+        tooltipPosition="bottom"
+        tooltipStyleClass="toolTip"
+        >Забыли пароль ?
+      </span>
+    </div>
+  </div>
+</div>

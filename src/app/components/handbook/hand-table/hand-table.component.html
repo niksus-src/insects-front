@@ -1,0 +1,86 @@
+<p-table
+  #dt
+  [value]="data"
+  [(selection)]="selectedItems"
+  dataKey="_id"
+  styleClass="hand-table"
+  [rowHover]="true"
+  [rows]="10"
+  [showCurrentPageReport]="true"
+  [rowsPerPageOptions]="[10, 25, 50]"
+  [paginator]="true"
+  [globalFilterFields]="['name']"
+>
+  >
+  <ng-template pTemplate="caption">
+    <div class="filter-header">
+      <div class="filter-header-action">
+        <span>Выбрано: {{selectedItems.length}}</span>
+        <span class="filter-header-action-btn-del" (click)="delete()">удалить</span>
+        <span class="filter-header-action-btn-add" (click)="showModalTr = !showModalTr">добавить</span>
+      </div>
+      <span class="p-input-icon-left p-ml-auto">
+        <i class="pi pi-search"></i>
+        <input
+          pInputText
+          type="text"
+          class="filter-input"
+          (input)="applyFilterGlobal($event, 'contains')"
+          placeholder="Поиск"
+        />
+      </span>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 4rem">
+        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+      </th>
+      <th style="width: 10rem">Номер</th>
+      <th pSortableColumn="name">
+        Название <p-sortIcon field="name"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+    <tr class="p-selectable-row">
+      <td>
+        <p-tableCheckbox [value]="item"></p-tableCheckbox>
+      </td>
+      <td>
+        {{ rowIndex + 1 }}
+      </td>
+      <td>
+        {{ item.name }}
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="8">Нет данных</td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog
+  header="Новая запись"
+  styleClass="modal"
+  contentStyleClass="modalContent"
+  [modal]="true"
+  [style]="{ width: '20vw' }"
+  [draggable]="false"
+  [resizable]="false"
+  [(visible)]="showModalTr"
+>
+  <div class="modal-content" [formGroup]="addForm">
+    <input
+      pInputText
+      id="login"
+      type="text"
+      class="input-create"
+      placeholder="Введите название"
+      formControlName="name"
+    />
+    <span class="filter-header-action-btn-add" (click)="add()">добавить</span>
+  </div>
+</p-dialog>

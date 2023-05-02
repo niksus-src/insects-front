@@ -1,0 +1,32 @@
+<div class="handbook-wrapper">
+  <div class="handbook-content">
+    <div class="handbook-wrapper-nav">
+      <p-tabView styleClass="tabview-custom handbook-header-tab">
+        <p-tabPanel header="ВИД" headerStyleClass="handbook-header-nav">
+          <ng-template pTemplate = "header">
+            <span>ВИД <p-badge [value]="genuses.length.toString()" styleClass="badge"></p-badge></span>
+          </ng-template>
+          <app-hand-table [data]="genuses" [service]="genusService" (onChange)="loadGenus()"></app-hand-table>
+        </p-tabPanel>
+        <p-tabPanel header="Место сбора" headerStyleClass="handbook-header-nav">
+          <ng-template pTemplate = "header">
+            <span>МЕСТО СБОРА <p-badge [value]="bindings.length.toString()" styleClass="badge"></p-badge></span>
+          </ng-template>
+          <app-hand-table [data]="bindings" [service]="bindingsService" (onChange)="loadBindings()"></app-hand-table>
+        </p-tabPanel>
+        <p-tabPanel header="ОПРЕДЕЛИВШИЙ" headerStyleClass="handbook-header-nav">
+          <ng-template pTemplate = "header">
+            <span>ОПРЕДЕЛИВШИЙ <p-badge [value]="defineds.length.toString()" styleClass="badge"></p-badge></span>
+          </ng-template>
+          <app-hand-table [data]="defineds" [service]="definedService" (onChange)="loadDefined()"></app-hand-table>
+        </p-tabPanel>
+        <p-tabPanel header="СБОРЩИК" headerStyleClass="handbook-header-nav">
+          <ng-template pTemplate = "header">
+            <span>СБОРЩИК <p-badge [value]="collectors.length.toString()" styleClass="badge"></p-badge></span>
+          </ng-template>
+          <app-hand-table [data]="collectors" [service]="collectorService" (onChange)="loadCollector()"></app-hand-table>
+        </p-tabPanel>
+      </p-tabView>
+    </div>
+  </div>
+</div>

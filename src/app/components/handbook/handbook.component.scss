@@ -1,0 +1,59 @@
+@import "src/variables.scss";
+
+.handbook-wrapper {
+  width: 100%;
+  height: 100%;
+  padding-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  ::ng-deep .p-tabview-nav {
+    border-width: 0;
+  }
+
+  ::ng-deep .p-highlight {
+    ::ng-deep a {
+      color: $secondColor !important;
+      font-weight: bold;
+    }
+  }
+
+  ::ng-deep .p-tabview-ink-bar {
+    background-color: $graySilk;
+  }
+}
+
+.handbook-content {
+  width: 1200px;
+    background-color: $mainColor !important;
+}
+
+::ng-deep .handbook-header-nav {
+  font-size: 14px;
+  color: $secondColor;
+  ::ng-deep .p-tabview-nav-link {
+    background: $mainColor !important;
+    font-weight: bold !important;
+
+
+  }
+}
+
+::ng-deep .badge {
+  margin-left: 10px;
+  background: #E9EDF5;
+  color: $secondColor;
+}
+
+::ng-deep .handbook-header-tab {
+  ::ng-deep .p-tabview-nav {
+    background: $mainColor !important;
+  }
+
+  ::ng-deep .p-tabview-panels {
+    background: $mainColor !important;
+
+  }
+}

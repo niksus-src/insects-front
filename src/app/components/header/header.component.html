@@ -1,0 +1,21 @@
+<header class="header">
+  <div class="header-container">
+    <div class="header-container_item">
+      <img src="assets/logo.svg" alt="НИУ БелГУ" />
+      <div>
+        <span
+          >Белгородский государственный национальный исследовательский
+          университет</span
+        ><br />
+        Экспозиционно-выставочный центр «Природа Белогорья»
+      </div>
+    </div>
+    <div class="header-container_item header-navigate">
+      <a *ngIf="!authService.isAuth" routerLink="/login" routerLinkActive="active">ВОЙТИ</a>
+      <a *ngIf="showMainLink" routerLink="/main" routerLinkActive="active">КОЛЛЕКЦИЯ</a>
+      <a *ngIf="showMainLink" routerLink="/handbook" routerLinkActive="active">СПРАВОЧНИКИ</a>
+      <a *ngIf="showMainLink">УПРАВЛЕНИЕ</a>
+      <a *ngIf="showMainLink && authService.isAuth" (click)="authService.logout()">ВЫЙТИ</a>
+    </div>
+  </div>
+</header>
